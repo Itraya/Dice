@@ -34,20 +34,16 @@ function LaunchDice(msg)
 				for (var j = 0; j < dices; j++)
 				{
 					const res = Math.floor(Math.random() * faces) + 1;
-					if (k > 0 && i == 0)
-					{
-						total -= res;
-						txt += res + " ";
-						if (j < dices - 1)
-							txt += "+ ";
-					}
+					if (res == faces)
+						txt += "**" + res + "** ";
 					else
-					{
-						total += res;
 						txt += res + " ";
-						if (j < dices - 1)
-							txt += "+ ";
-					}
+					if (k > 0 && i == 0)
+						total -= res;
+					else
+						total += res;
+					if (j < dices - 1)
+						txt += "+ ";
 				}
 				txt += ") ";
 			}
